@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h1>View Person</h1>
+<a href="/personList">Back to Person List</a>
+<br/><br/>
+{{#personalities}}
+    <table border="0">
+        <tr>
+            <td>ID</td>
+            <td>:</td>
+            <td>{{personalities.id}}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td>{{personalities.name}}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>:</td>
+            <td>{{personalities.lastName}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td>{{personalities.gender}}</td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>:</td>
+            <td>{{#personalities.dateOfBirth}}{{personalities.dateOfBirth}}{{/personalities.dateOfBirth}}</td>
+        </tr>
+    </table>
+    <br/><br/>
+    {{#allowDelete}}
+        <form action="/personList/{{personalities.id}}/delete" method="POST">
+            Delete this person? <input type="submit" value="Yes" />
+        </form>
+    {{/allowDelete}}
+    {{^allowDelete}}
+        <div>
+            <a href="/personList/{{personalities.id}}/edit">Edit</a> |
+            <a href="/personList/{{personalities.id}}/delete">Delete</a>
+        </div>
+    {{/allowDelete}}
+{{/personalities}}
+
+</body>
+</html>

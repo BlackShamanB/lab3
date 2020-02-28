@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Список людей</div>
+<form method="post" action="filter">
+    <input type="text" name="nameFilter">
+    <button type="submit"> Найти</button>
+</form>
+<table border="0">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+    </tr>
+    {{#personalities}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{Name}}</td>
+            <td>{{lastName}}</td>
+            <td>{{gender}}</td>
+            <td>{{#dateOfBirth}}{{dateOfBirth}}{{/dateOfBirth}}</td>
+        </tr>
+    {{/personalities}}
+</table>
+<div>
+    <a href="/">Back</a>
+</div>
+</body>
+</html>
