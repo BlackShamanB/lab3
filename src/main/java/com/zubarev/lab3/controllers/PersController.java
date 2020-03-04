@@ -110,8 +110,9 @@ public class PersController {
     }
 
     @PostMapping("/personList/{persId}/edit")
-    public String edit(@ModelAttribute("personality") Personality person, Model model, @PathVariable long persId) {
+    public String edit(@RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfBirth, Model model, @PathVariable long persId) {
         try {
+            Personality person=new Personality(name,lastName,gender,dateOfBirth);
             person.setId(persId);
             persService.changePerson(person);
             return "redirect:/personList/" + person.getId();

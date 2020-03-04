@@ -35,7 +35,7 @@
         <tr>
             <td>Date of Birth</td>
             <td>:</td>
-            <td><input type="date" name="date" value="{{#personalities.dateOfBirth}}{{personalities.dateOfBirth}}{{/personalities.dateOfBirth}}" /></td>
+            <td><input type="date" name="dateOfBirth" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" value="{{#personalities.dateOfBirth}}{{personalities.dateOfBirth}}{{/personalities.dateOfBirth}}" /></td>
         </tr>
 
     </table>
