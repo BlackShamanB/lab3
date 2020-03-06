@@ -2,14 +2,12 @@ package com.zubarev.lab3.modal;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 public class Personality {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,14 +18,19 @@ public class Personality {
     @DateTimeFormat(pattern = "yyyy.MM.dd")
     private LocalDate dateOfBirth;
 
+    @ManyToOne
+    @JoinColumn(name = "cityId")
+    private City cityId;
+
     public Personality() {
     }
 
-    public Personality(String name, String lastName, String gender, LocalDate dateOfBirth) {
+    public Personality(String name, String lastName, String gender, LocalDate dateOfBirth,City cityId) {
         this.name = name;
         this.lastName = lastName;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
+        this.cityId=cityId;
     }
 
     public Long getId() {
@@ -68,5 +71,13 @@ public class Personality {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public City getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(City cityId) {
+        this.cityId = cityId;
     }
 }
