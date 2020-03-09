@@ -7,7 +7,7 @@ import java.util.Set;
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "cityId")
+    //@Column (name = "cityId")
     private Long idCity;
     private String nameCity;
     @OneToMany (mappedBy = "cityId")
