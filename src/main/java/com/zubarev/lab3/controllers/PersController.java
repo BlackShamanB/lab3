@@ -1,5 +1,6 @@
 package com.zubarev.lab3.controllers;
 
+import com.zubarev.lab3.modal.City;
 import com.zubarev.lab3.modal.Personality;
 import com.zubarev.lab3.service.PersService;
 import org.slf4j.Logger;
@@ -101,8 +102,8 @@ public class PersController {
     }
 
     @PostMapping("/personList")
-    public String add(@RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfBirth, Map<String, Object> model) {
-        Personality person = new Personality(name, lastName, gender, dateOfBirth);
+    public String add(@RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfBirth, @RequestParam City city, Map<String, Object> model) {
+        Personality person = new Personality(name, lastName, gender, dateOfBirth,city);
         persService.addPerson(person);
         Iterable<Personality> personalities = persService.getAll();
         model.put("personalities", personalities);
@@ -110,9 +111,9 @@ public class PersController {
     }
 
     @PostMapping("/personList/{persId}/edit")
-    public String edit(@RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfBirth, Model model, @PathVariable long persId) {
+    public String edit(@RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfBirth,@RequestParam City city, Model model, @PathVariable long persId) {
         try {
-            Personality person=new Personality(name,lastName,gender,dateOfBirth);
+            Personality person=new Personality(name,lastName,gender,dateOfBirth,city);
             person.setId(persId);
             persService.changePerson(person);
             return "redirect:/personList/" + person.getId();
