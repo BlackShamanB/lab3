@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
+<body>
 <h1>View Person</h1>
 <a href="/personList">Back to Person List</a>
 <br/><br/>
@@ -43,7 +45,7 @@
     {{/allowDelete}}
     {{^allowDelete}}
         <div>
-            <a href="/personList/{{personalities.id}}/edit">Edit</a> |
+            <a href="/personList/{{personalities.id}}/editPerson">Edit</a> |
             <a href="/personList/{{personalities.id}}/delete">Delete</a>
         </div>
     {{/allowDelete}}

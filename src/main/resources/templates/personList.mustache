@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
 <body>
 <div>
     <form method="post">
@@ -12,21 +17,22 @@
 </div>
 <div>Список людей</div>
 <table border="0">
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Last Name</th>
-        <th>Gender</th>
-        <th>Date of Birth</th>
-    </tr>
+    <thead>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Last Name</td>
+            <td>Gender</td>
+            <td>Date of Birth</td>
+    </thead>
     {{#personalities}}
-        <tr>
+        <tbody>
             <td><a href="/person/{{id}}">{{id}}</a></td>
             <td>{{name}}</td>
             <td>{{lastName}}</td>
             <td>{{gender}}</td>
             <td>{{#dateOfBirth}}{{dateOfBirth}}{{/dateOfBirth}}</td>
-        </tr>
+            <td><strong>{{placeName}}</strong></td>
+        </tbody>
     {{/personalities}}
 </table>
 <br/><br/>
@@ -35,3 +41,4 @@
 </div>
 </body>
 </html>
+

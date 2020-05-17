@@ -3,6 +3,7 @@ package com.zubarev.lab3.service;
 import com.zubarev.lab3.modal.Personality;
 import com.zubarev.lab3.repos.PersRepos;
 import org.assertj.core.util.Lists;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -54,7 +55,6 @@ public class PersServiceImpl implements PersService {
 
     @Override
     public List<Personality> findByName(String name) {
-        return persRepos.findByName(name);
+        return persRepos.findByNameContains(name);
     }
-
 }

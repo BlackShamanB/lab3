@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>{{#add}}Create new Task{{/add}}{{^add}}Edit Task{{/add}}</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
 <h1>{{#add}}Create new Task:{{/add}}{{^add}}Edit Task:{{/add}}</h1>
 <a href="/personList">Back to task List</a>
 <br/><br/>
-<form action="{{#add}}/personList/add{{/add}}{{^add}}/personList/{{personalities.id}}/edit{{/add}}" name="personList" method="POST">
+<form action="{{#add}}/personList/add{{/add}}{{^add}}/personList/{{personalities.id}}/editPerson{{/add}}" name="personList" method="POST">
     <table border="0">
         {{#personalities.id}}
             <tr>

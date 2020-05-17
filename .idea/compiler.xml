@@ -6,13 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com.zubarev.Lab3" />
+        <module name="serving-web-content" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.zubarev.Lab3" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="com.zubarev.Lab3" options="-parameters" />
+      <module name="serving-web-content" options="-parameters" />
     </option>
   </component>
 </project>

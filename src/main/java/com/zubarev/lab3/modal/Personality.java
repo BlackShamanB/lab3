@@ -17,20 +17,24 @@ public class Personality {
     private String gender;
     @DateTimeFormat(pattern = "yyyy.MM.dd")
     private LocalDate dateOfBirth;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Place place;
 
-    @ManyToOne
-    @JoinColumn(name = "cityId")
-    private City cityId;
 
     public Personality() {
     }
 
-    public Personality(String name, String lastName, String gender, LocalDate dateOfBirth,City cityId) {
+
+    public Personality(String name, String lastName, String gender, LocalDate dateOfBirth, Place place) {
         this.name = name;
         this.lastName = lastName;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
-        this.cityId=cityId;
+        this.place = place;
+    }
+
+    public String getPlaceName(){
+        return place !=null ? place.getPlaceName() : "<none>";
     }
 
     public Long getId() {
@@ -73,11 +77,4 @@ public class Personality {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public City getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(City cityId) {
-        this.cityId = cityId;
-    }
 }
