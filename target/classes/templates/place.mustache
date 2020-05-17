@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+<h1>View Place</h1>
+<a href="/placeList">Back to Place List</a>
+<br/><br/>
+{{#places}}
+    <table border="0">
+        <tr>
+            <td>ID</td>
+            <td>:</td>
+            <td>{{places.placeId}}</td>
+        </tr>
+        <tr>
+            <td>Name Place</td>
+            <td>:</td>
+            <td>{{places.placeName}}</td>
+        </tr>
+        <tr>
+            <td>Parent</td>
+            <td>:</td>
+            <td>{{places.parent}}</td>
+        </tr>
+    </table>
+    <br/><br/>
+    {{#allowDelete}}
+        <form action="/placeList/{{places.placeId}}/delete" method="POST">
+            Delete this place? <input type="submit" value="Yes" />
+        </form>
+    {{/allowDelete}}
+    {{^allowDelete}}
+        <div>
+            <a href="/placeList/{{places.placeId}}/editPlace">Edit</a> |
+            <a href="/placeList/{{places.placeId}}/delete">Delete</a>
+        </div>
+    {{/allowDelete}}
+{{/places}}
+</body>
+</html>

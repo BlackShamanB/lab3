@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{#add}}Create new Place{{/add}}{{^add}}Edit Place{{/add}}</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+<h1>{{#add}}Create new Place:{{/add}}{{^add}}Edit Task:{{/add}}</h1>
+<a href="/placeList">Back to Place List</a>
+<br/><br/>
+<form action="{{#add}}/placeList/add{{/add}}{{^add}}/placeList/{{places.placeId}}/editPlace{{/add}}" name="placeList" method="POST">
+    <table border="0">
+        {{#places.placeId}}
+            <tr>
+                <td>ID</td>
+                <td>:</td>
+                <td>{{places.placeId}}</td>
+            </tr>
+        {{/places.placeId}}
+        <tr>
+            <td>Place Name</td>
+            <td>:</td>
+            <td><input type="text" name="placeName" value="{{#places.placeName}}{{places.placeName}}{{/places.placeName}}" /></td>
+        </tr>
+        <tr>
+            <td>Parent Name</td>
+            <td>:</td>
+            <td><input type="text" name="childName" value="{{#places.child}}{{places.child}}{{/places.child}}" /></td>
+        </tr>
+
+
+    </table>
+    <input type="submit" value="{{#add}}Create{{/add}}{{^add}}Update{{/add}}" />
+</form>
+<div>
+    <a href="/placeList">Back</a>
+</div>
+</body>
+</html>

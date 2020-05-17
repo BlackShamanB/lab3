@@ -1,0 +1,22 @@
+
+table {width: 100%; border-collapse: separate; border-spacing: 4px;}
+table thead {color: #ffffff; font-weight: bold;}
+table thead td {border-radius: 4px 4px 0 0; background: #2e82c3;}
+table tbody td {border: 1px solid #2e82c3; border-radius: 4px; background: #cbdfef;}
+table tbody td:hover {background: #a2c3dd; transition-duration: 0.2s;}
+
+input[type=text], input[type=date],input[type=submit]{
+    width:100%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+}
+
+input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+}

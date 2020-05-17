@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{#add}}Create new Task{{/add}}{{^add}}Edit Task{{/add}}</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+<h1>{{#add}}Create new Task:{{/add}}{{^add}}Edit Task:{{/add}}</h1>
+<a href="/personList">Back to task List</a>
+<br/><br/>
+<form action="{{#add}}/personList/add{{/add}}{{^add}}/personList/{{personalities.id}}/editPerson{{/add}}" name="personList" method="POST">
+    <table border="0">
+        {{#personalities.id}}
+            <tr>
+                <td>ID</td>
+                <td>:</td>
+                <td>{{personalities.id}}</td>
+            </tr>
+        {{/personalities.id}}
+        <tr>
+            <td>Last Name</td>
+            <td>:</td>
+            <td><input type="text" name="name" value="{{#personalities.name}}{{personalities.name}}{{/personalities.name}}" /></td>
+        </tr>
+        <tr>
+            <td>Description Task</td>
+            <td>:</td>
+            <td><input type="text" name="lastName" value="{{#personalities.lastName}}{{personalities.lastName}}{{/personalities.lastName}}" /></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td><input type="text" name="gender" value="{{#personalities.gender}}{{personalities.gender}}{{/personalities.gender}}" /></td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>:</td>
+            <td><input type="date" name="dateOfBirth" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" value="{{#personalities.dateOfBirth}}{{personalities.dateOfBirth}}{{/personalities.dateOfBirth}}" /></td>
+        </tr>
+
+    </table>
+    <input type="submit" value="{{#add}}Create{{/add}}{{^add}}Update{{/add}}" />
+</form>
+<div>
+    <a href="/personList">Back</a>
+</div>
+</body>
+</html>

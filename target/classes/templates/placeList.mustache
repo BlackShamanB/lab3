@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>Title</title>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<body>
+<div>
+    <form method="post">
+        <input type="text" name="name" placeholder="Введите название места">
+        <button type="submit">Add</button>
+    </form>
+</div>
+<div>Список мест</div>
+<table border="0">
+    <thead>
+        <td>Id</td>
+        <td>Place</td>
+    </thead>
+
+    {{#places}}
+        <tbody>
+            <td><a href="/place/{{placeId}}">{{placeId}}</a></td>
+            <td><a href="/placeList1/{{placeId}}">{{placeName}}</a></td>
+        </tbody>
+    {{/places}}
+</table>
+<br/><br/>
+<div>
+    <a href="/">Back</a>
+</div>
+</body>
+</html>
