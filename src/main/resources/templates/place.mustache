@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
@@ -35,8 +35,8 @@
     {{/allowDelete}}
     {{^allowDelete}}
         <div>
-            <a href="/place/{{places.placeId}}/edit">Edit</a> |
-            <a href="/place/{{places.placeId}}/delete">Delete</a>
+            <a class="button" href="/place/{{places.placeId}}/edit">Edit</a> |
+            <a class="button" href="/place/{{places.placeId}}/delete">Delete</a>
         </div>
     {{/allowDelete}}
 {{/places}}
