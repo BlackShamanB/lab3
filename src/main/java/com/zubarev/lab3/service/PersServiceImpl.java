@@ -57,4 +57,5 @@ public class PersServiceImpl implements PersService {
     public List<Personality> findByName(String name) {
         return persRepos.findByNameContains(name);
     }
+
 }

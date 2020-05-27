@@ -24,19 +24,19 @@
         <tr>
             <td>Parent</td>
             <td>:</td>
-            <td>{{places.parent}}</td>
+            <td>{{#places.parent}}{{places.parent}}{{/places.parent}}{{^places.parent}}None{{/places.parent}}</td>
         </tr>
     </table>
     <br/><br/>
     {{#allowDelete}}
-        <form action="/placeList/{{places.placeId}}/delete" method="POST">
+        <form action="/place/{{places.placeId}}/delete" method="POST">
             Delete this place? <input type="submit" value="Yes" />
         </form>
     {{/allowDelete}}
     {{^allowDelete}}
         <div>
-            <a href="/placeList/{{places.placeId}}/editPlace">Edit</a> |
-            <a href="/placeList/{{places.placeId}}/delete">Delete</a>
+            <a href="/place/{{places.placeId}}/edit">Edit</a> |
+            <a href="/place/{{places.placeId}}/delete">Delete</a>
         </div>
     {{/allowDelete}}
 {{/places}}

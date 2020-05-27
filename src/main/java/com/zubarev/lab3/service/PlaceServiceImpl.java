@@ -47,6 +47,12 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
+    public Place getPlace(String name) {
+        Place place = placeRepos.findByPlaceName(name);
+        return place;
+    }
+
+    @Override
     public void deletePlaceId(Long id) {
         placeRepos.deleteById(id);
     }
@@ -60,4 +66,10 @@ public class PlaceServiceImpl implements PlaceService{
     public List<Place> findByName(String name) {
         return placeRepos.findByPlaceNameContains(name);
    }
+
+    @Override
+    public boolean check(String placeName) {
+        List<Place> places= getAll();
+        return places.contains(getPlace(placeName));
+    }
 }

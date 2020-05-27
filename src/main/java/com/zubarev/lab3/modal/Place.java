@@ -38,11 +38,11 @@ public class Place {
         this.placeName = placeName;
     }
 
-    public Long getChild() {
+    public Long getParent() {
         return parent;
     }
 
-    public void setChild(Long parent) {
+    public void setParent(Long parent) {
         this.parent = parent;
     }
 }

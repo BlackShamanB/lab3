@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{#add}}Create new Task{{/add}}{{^add}}Edit Task{{/add}}</title>
+    <title>{{#add}}Create new Person{{/add}}{{^add}}Edit Person{{/add}}</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-<h1>{{#add}}Create new Task:{{/add}}{{^add}}Edit Task:{{/add}}</h1>
-<a href="/personList">Back to task List</a>
+<h1>{{#add}}Create new Person:{{/add}}{{^add}}Edit Person:{{/add}}</h1>
+<a href="/personList">Back to Person List</a>
 <br/><br/>
-<form action="{{#add}}/personList/add{{/add}}{{^add}}/personList/{{personalities.id}}/editPerson{{/add}}" name="personList" method="POST">
+<form action="{{#add}}/person/add{{/add}}{{^add}}/person/{{personalities.id}}/edit{{/add}}" name="person" method="POST">
     <table border="0">
         {{#personalities.id}}
             <tr>
@@ -24,7 +24,7 @@
             <td><input type="text" name="name" value="{{#personalities.name}}{{personalities.name}}{{/personalities.name}}" /></td>
         </tr>
         <tr>
-            <td>Description Task</td>
+            <td>Last Name</td>
             <td>:</td>
             <td><input type="text" name="lastName" value="{{#personalities.lastName}}{{personalities.lastName}}{{/personalities.lastName}}" /></td>
         </tr>
@@ -37,6 +37,11 @@
             <td>Date of Birth</td>
             <td>:</td>
             <td><input type="date" name="dateOfBirth" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" value="{{#personalities.dateOfBirth}}{{personalities.dateOfBirth}}{{/personalities.dateOfBirth}}" /></td>
+        </tr>
+        <tr>
+            <td>Place</td>
+            <td>:</td>
+            <td><select name="placeName">{{#places}}<option>{{placeName}}</option>{{/places}}</select></td>
         </tr>
 
     </table>

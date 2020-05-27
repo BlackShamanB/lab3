@@ -36,17 +36,22 @@
             <td>:</td>
             <td>{{#personalities.dateOfBirth}}{{personalities.dateOfBirth}}{{/personalities.dateOfBirth}}</td>
         </tr>
+        <tr>
+            <td>Place</td>
+            <td>:</td>
+            <td>{{personalities.place.placeName}}</td>
+        </tr>
     </table>
     <br/><br/>
     {{#allowDelete}}
-        <form action="/personList/{{personalities.id}}/delete" method="POST">
+        <form action="/person/{{personalities.id}}/delete" method="POST">
             Delete this person? <input type="submit" value="Yes" />
         </form>
     {{/allowDelete}}
     {{^allowDelete}}
         <div>
-            <a href="/personList/{{personalities.id}}/editPerson">Edit</a> |
-            <a href="/personList/{{personalities.id}}/delete">Delete</a>
+            <a href="/person/{{personalities.id}}/edit">Edit</a> |
+            <a href="/person/{{personalities.id}}/delete">Delete</a>
         </div>
     {{/allowDelete}}
 {{/personalities}}

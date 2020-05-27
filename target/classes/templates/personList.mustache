@@ -12,6 +12,7 @@
         <input type="text" name="lastName" placeholder="Введите фамилию">
         <input type="text" name="gender" placeholder="Введите пол">
         <input type="date" name="dateOfBirth" value="2019-01-01" placeholder="Введите дату рождения">
+        <select name="placeName">{{#places}}<option>{{placeName}}</option>{{/places}}</select>
         <button type="submit">Add</button>
     </form>
 </div>
@@ -23,6 +24,7 @@
             <td>Last Name</td>
             <td>Gender</td>
             <td>Date of Birth</td>
+            <td>Place</td>
     </thead>
     {{#personalities}}
         <tbody>

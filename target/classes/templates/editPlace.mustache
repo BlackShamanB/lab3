@@ -9,15 +9,15 @@
 <h1>{{#add}}Create new Place:{{/add}}{{^add}}Edit Task:{{/add}}</h1>
 <a href="/placeList">Back to Place List</a>
 <br/><br/>
-<form action="{{#add}}/placeList/add{{/add}}{{^add}}/placeList/{{places.placeId}}/editPlace{{/add}}" name="placeList" method="POST">
+<form action="{{#add}}/place/add{{/add}}{{^add}}/place/{{places.placeId}}/edit{{/add}}" name="place" method="POST">
     <table border="0">
-        {{#places.placeId}}
+        {{#places}}
             <tr>
                 <td>ID</td>
                 <td>:</td>
-                <td>{{places.placeId}}</td>
+                <td>{{placeId}}</td>
             </tr>
-        {{/places.placeId}}
+        {{/places}}
         <tr>
             <td>Place Name</td>
             <td>:</td>
@@ -26,7 +26,7 @@
         <tr>
             <td>Parent Name</td>
             <td>:</td>
-            <td><input type="text" name="childName" value="{{#places.child}}{{places.child}}{{/places.child}}" /></td>
+            <td><select name="parent"><option>does not have a parent</option>{{#parents}}<option>{{placeName}}</option>{{/parents}}</select></td>
         </tr>
 
 

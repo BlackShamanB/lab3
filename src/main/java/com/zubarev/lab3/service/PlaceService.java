@@ -10,8 +10,9 @@ public interface PlaceService {
    public Place changePlace(Place place);
    public List<Place> getAll();
    public Place getPlace(Long id);
+   public Place getPlace(String name);
    public void deletePlaceId(Long id);
    public Long count();
    public List<Place> findByName(String name);
-
+   public boolean check(String placeName);
 }

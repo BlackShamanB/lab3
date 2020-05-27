@@ -7,6 +7,7 @@
 <div>
     <form method="post">
         <input type="text" name="name" placeholder="Введите название места">
+        <select name="parent"><option>does not have a parent</option>{{#places}}<option>{{placeName}}</option>{{/places}}</select>
         <button type="submit">Add</button>
     </form>
 </div>
@@ -15,12 +16,19 @@
     <thead>
         <td>Id</td>
         <td>Place</td>
+        <td>Parent</td>
     </thead>
 
     {{#places}}
         <tbody>
             <td><a href="/place/{{placeId}}">{{placeId}}</a></td>
-            <td><a href="/placeList1/{{placeId}}">{{placeName}}</a></td>
+            <td><a href="/place/{{placeId}}">{{placeName}}</a></td>
+            <td>
+                {{#parent}}
+                <a href="/place/{{parent}}"> {{parent}}</a>
+                {{/parent}}
+                {{^parent}}None{{/parent}}
+            </td>
         </tbody>
     {{/places}}
 </table>
