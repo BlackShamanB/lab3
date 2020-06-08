@@ -77,33 +77,12 @@ public class PersController {
         return "person";
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @GetMapping("/filter")
     public String filter(Map<String, Object> model) {
         Iterable<Personality> person = persService.getAll();
         model.put("personalities", person);
         return "filter";
     }
-
-
-
-
-
 
 //
 //    @GetMapping("/editPerson")
@@ -180,12 +159,6 @@ public class PersController {
         return "place";
     }
 
-
-
-
-
-
-
     @PostMapping("/personList")
     public String add(@RequestParam String name, @RequestParam String lastName, @RequestParam String gender, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateOfBirth,@RequestParam String placeName, Map<String, Object> model) {
         Place place= placeService.getPlace(placeName);
@@ -200,7 +173,7 @@ public class PersController {
     public String addPlace(@RequestParam String name,@RequestParam String parent, Map<String, Object> model) {
         Place place;
         if(!placeService.check(parent))
-            place = new Place(name);
+            place=new Place(name,null);
         else{
             Place placeParent=placeService.getPlace(parent);
             place=new Place(name,placeParent.getPlaceId());
@@ -234,7 +207,7 @@ public class PersController {
         try {
             Place place;
             if(!placeService.check(parent))
-                place = new Place(placeName);
+                place = new Place(placeName,null);
             else{
                 Place placeParent=placeService.getPlace(parent);
                 place=new Place(placeName,placeParent.getPlaceId());

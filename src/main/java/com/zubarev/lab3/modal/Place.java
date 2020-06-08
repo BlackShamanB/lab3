@@ -13,10 +13,6 @@ public class Place {
     public Place() {
     }
 
-    public Place(String placeName) {
-        this.placeName=placeName;
-    }
-
     public Place(String placeName, Long parent ) {
         this.placeName=placeName;
         this.parent=parent;
